@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resume job application sentement analysis</title>
+</head>
+<body>
+  <div id="content">
+    <h1>Sentiment Analysis:</h1>
+    <div id="result"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@huggingface/sentiment-analysis"></script>
+  <script>
+    const classifier = pipeline("sentiment-analysis");
+    const resultDiv = document.getElementById("result");
+    classifier("I love using Hugging Face library!").then(results => {
+      resultDiv.innerHTML = results[0].label;
+    });
+  </script>
+</body>
+</html>
+
